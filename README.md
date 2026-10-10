@@ -2,7 +2,7 @@
 
 每周一期的出口选品情报。AI 帮你扫一遍 32 个收款安全的国家，回答两个问题：**现在缺什么，接下来会缺什么**，最后给你一张「品类 × 国家」选品机会榜。
 
-它是一个 Claude Code skill：装好以后跟 AI 说「出周刊」就出一期，Mac 上还能每周自动出。
+它是一个 AI skill，Claude Code 和 Codex 都能用：装好以后跟 AI 说「出周刊」就出一期，用 Claude Code 的 Mac 上还能每周自动出。
 
 ## 为什么做这个
 
@@ -70,16 +70,19 @@
 
 ## 安装
 
-需要 [Claude Code](https://claude.com/claude-code) 和 Python 3.9 以上（Mac 自带）。自动出刊只支持 Mac，Windows 可以手动出刊。
+需要 [Claude Code](https://claude.com/claude-code) 或 Codex，加上 Python 3.9 以上（Mac 自带）。每周自动出刊目前只支持 Mac 上的 Claude Code；Windows 或 Codex 可以手动出刊。用 Codex 的话，要确认它能联网搜索（采购端、政策这些靠网页搜索）。
 
-**最简单**：把这句话发给 Claude Code：
+**最简单**：把这句话发给 Claude Code 或 Codex：
 
 > 帮我把 https://github.com/lilyfish8579-arch/trade-intel-weekly 装成 skill
 
 **自己装**：
 
 ```bash
+# Claude Code
 git clone https://github.com/lilyfish8579-arch/trade-intel-weekly.git ~/.claude/skills/trade-intel-weekly
+# Codex
+git clone https://github.com/lilyfish8579-arch/trade-intel-weekly.git ~/.codex/skills/trade-intel-weekly
 ```
 
 ## 怎么用
@@ -101,7 +104,7 @@ git clone https://github.com/lilyfish8579-arch/trade-intel-weekly.git ~/.claude/
 
 - 机会榜是**有依据的判断，不是验证过的预测**。信号台账会记下每期的判断，攒满 8–12 周后可以回头看对了几成
 - 外部网站改版或限流时，某个数据源可能抓不到，周刊附录会写明哪些没抓到
-- 自动出刊会用你自己的 Claude 额度，建议放在夜里或清早
+- 出周刊会用你自己的 AI 额度，自动出刊建议放在夜里或清早
 
 ## 交流群
 
