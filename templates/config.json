@@ -12,7 +12,7 @@
   },
   "shopping_rising": {
     "geos": ["US", "CA", "GB", "DE", "FR", "NL", "ES", "IT", "SE", "AU", "JP"],
-    "categories": {"11": "家居园艺", "66": "宠物", "20": "运动户外", "44": "美妆个护", "18": "购物综合"}
+    "categories": {"11": "家居园艺", "65": "爱好休闲", "432": "玩具", "66": "宠物", "20": "运动户外", "44": "美妆个护", "18": "购物综合"}
   },
   "amazon_bestsellers": {
     "宠物": {"US": "pet-supplies", "GB": "pet-supplies", "DE": "pet-supplies", "FR": "pet-supplies"},
@@ -23,6 +23,8 @@
     "玩具": {"US": "toys-and-games", "GB": "kids", "DE": "toys", "FR": "toys"},
     "美妆个护": {"US": "beauty", "GB": "beauty", "DE": "beauty", "FR": "beauty"}
   },
+  "amazon_new_releases": ["家居厨房", "运动户外", "五金工具", "玩具"],
+  "promo_dates": [["2026-10-05", "2026-10-08"], ["2026-11-23", "2026-12-01"]],
   "deals_sites": ["GB", "DE", "AT", "FR", "ES", "NL", "US", "CA"],
   "reddit": {
     "subs": ["BuyItForLife", "Frugal", "HomeImprovement", "Cooking", "gardening", "dogs", "cats", "FulfillmentByAmazon"],

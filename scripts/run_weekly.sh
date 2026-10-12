@@ -1,6 +1,6 @@
 #!/bin/zsh
 # 自动出刊（只支持 Mac）：由 install_schedule.py 装的定时任务触发，也可以手动跑。
-# 先跑不用 AI 的采集（折扣热榜、亚马逊畅销榜），再用 claude -p 按 skill 出一期。
+# 先跑不用 AI 的采集（折扣热榜、亚马逊畅销榜和新品榜），再用 claude -p 按 skill 出一期。
 # 用法：zsh run_weekly.sh [周刊文件夹]      不给就用 init_project.py 记住的那个，再没有就用 ~/外贸情报局周刊
 setopt null_glob
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
@@ -22,7 +22,8 @@ OUT="各期/第${ISSUE}期_$(date +%Y-%m-%d).md"
 
 PROMPT="今天是 $(date +%Y-%m-%d)。请用 trade-intel-weekly skill 出《外贸情报局周刊》第 $((10#$ISSUE)) 期，统计最近 7 天。
 周刊文件夹是 $P（就是当前目录），skill 目录是 $SKILL。
-- 折扣热榜和亚马逊畅销榜刚采好，直接读，不要再抓榜单页。
+- 折扣热榜和亚马逊畅销榜、新品榜刚采好，直接读，不要再抓榜单页。
+- 机会榜前 3 名用 import_stats.py 查官方进口数据（美国没配 key 就跳过）。
 - 新一期存为 $OUT，写完更新 信号台账.md。
 - 这是无人值守运行：不要提问；需要周刊主人决定或要花钱查的事，写进「下期跟踪」。
 - 绝对不要调用信风或任何收费接口。

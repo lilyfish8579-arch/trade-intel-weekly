@@ -2,7 +2,7 @@
 
 用法：python3 check_env.py
 """
-import importlib.util, platform, shutil, subprocess, sys
+import importlib.util, os, platform, shutil, subprocess, sys
 
 rows = []
 rows.append(("Python 3.9 以上", sys.version_info >= (3, 9), f"当前 {platform.python_version()}"))
@@ -21,6 +21,10 @@ if rdt:
 else:
     rows.append(("Reddit（可选）", False, "没装，不装也能出刊。要装：pipx install rdt-cli，浏览器登录 reddit.com 后跑 rdt login"))
 
+key = os.environ.get("CENSUS_API_KEY") or os.path.exists(os.path.expanduser("~/.config/trade-intel-weekly/census_key"))
+rows.append(("美国官方进口数据（可选）", bool(key),
+             "已配 key" if key else "没配 key，不配也能出刊（欧盟、英国、加拿大不用 key）。要配见 references/首次设置.md"))
+
 mac = platform.system() == "Darwin"
 cl = shutil.which("claude")
 rows.append(("自动出刊（可选，只支持 Mac）", mac and bool(cl),
@@ -28,4 +32,4 @@ rows.append(("自动出刊（可选，只支持 Mac）", mac and bool(cl),
 
 for name, ok, note in rows:
     print(f"{'✅' if ok else '⚪'} {name}：{note}")
-print("\n不用装就能用：折扣社区热榜（8 国）、Polymarket 预测市场、网页搜索（财报、展会、政策）")
+print("\n不用装就能用：折扣社区热榜（8 国）、亚马逊畅销榜和新品榜、欧盟/英国/加拿大官方进口数据、Polymarket 预测市场、网页搜索（财报、展会、政策）")
